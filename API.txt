@@ -1,0 +1,122 @@
+
+API's and Schema Structures :- 
+
+
+===> Product API :- DONE
+
+	Create New product :- Done [ 6759df36bd8c40e4283096b3   6759df61bd8c40e4283096b6   6759df80bd8c40e4283096b9 ]
+	Delete Product -- Done
+	Fetch All Product -- Done
+	Update Product -- Done
+	Fetch Specific Product [ Via Id or Via Category or title ] -- Done
+
+
+===> User API : DONE
+
+	Register User :- DONE
+	Get Specific User Info :- DONE
+	Login User :- DONE
+	Logout User :- Done
+
+
+===> Cart API : DONE
+
+	Add To Cart -- DONE [  cartid :675aae57bb7c8adfb3181e79 ]
+	Get Cart Data -- Done
+	Update Cart [ Specific item quantity change ] -- DONE
+	Delete from Cart [ Spefic item or entire cart ] -- Done
+	ClearCart : Once Order Placed then cart should be cleared based on cartId. -- DONE
+
+
+
+===> Order API :- DONE
+
+	Create a New Order :- DONE [ orderId :- 675b124c5dce530b5493935c]
+	Get Specific order of particular user - DONE
+	Get All Orders of Particular User -- DONE
+	Cancel a Specific Order -- DONE
+
+
+
+
+
+
+=====> Schema Structures : -
+
+
+
+	User Schema :- 
+
+	{	
+		_id:"213211",
+		name:"nitesh",
+		email:"abc@gmail.com",
+		password:"asdf",
+		address:{
+			state:"abc",
+			city:"def",
+			pincode:123,
+			phone:12345
+                             	             }
+	}
+
+
+
+
+	Product Schema :
+	
+	{
+		p_id:"P-342u432",
+		product_title:"phone",
+		product_desc:"latest smartphone",
+		product_category:"electonic gadget",
+		product_quantity:10,
+		product_price:100,
+		product_InStock:true
+	}
+
+
+
+	Cart Schema :
+
+	{
+		c_id:unique id of each item added to cart,
+		user_id:_id [id of user whose order this is],
+		p_ids: 	[ 
+				{
+					p_id:P-1233,
+					quantity:1
+				}
+			 ]
+	}
+	
+
+	
+	Order Schema :
+
+
+		{
+			o_id:O-1233,
+			u_id:12,
+			Products : [
+
+				{	
+					P_id:
+					Delivery_Address:Populate this from user information [ As Cart has user_Id],
+					Order_Status:["Created","Delivered","Cancelled"],
+					Quantity:1,
+					TotalPrice:12312,
+					Payment_Options:enum,
+					Date:order placed date
+				}
+			]
+		}
+
+
+
+
+
+
+
+
+
